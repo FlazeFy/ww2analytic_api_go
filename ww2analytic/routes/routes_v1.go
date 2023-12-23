@@ -4,6 +4,7 @@ import (
 	"net/http"
 	airplanehandlers "ww2analytic/modules/airplane/http_handlers"
 	shiphandlers "ww2analytic/modules/ship/http_handlers"
+	vechandlers "ww2analytic/modules/vehicle/http_handlers"
 
 	"github.com/labstack/echo"
 )
@@ -26,6 +27,10 @@ func InitV1() *echo.Echo {
 	e.GET("api/v1/ships/byclass/:ord", shiphandlers.GetTotalShipClass)
 	e.GET("api/v1/ships/bycountry/:ord", shiphandlers.GetTotalShipCountry)
 	e.GET("api/v1/ships/bylaunchyear/:ord", shiphandlers.GetTotalShipLaunchYear)
+
+	// Vehicles
+	e.GET("api/v1/vehicles/byrole/:ord", vechandlers.GetTotalVehicleRole)
+	e.GET("api/v1/vehicles/bycountry/:ord", vechandlers.GetTotalVehicleCountry)
 
 	// =============== Private routes ===============
 
