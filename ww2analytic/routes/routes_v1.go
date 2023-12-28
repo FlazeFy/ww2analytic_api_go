@@ -3,6 +3,7 @@ package routes
 import (
 	"net/http"
 	airplanehandlers "ww2analytic/modules/airplane/http_handlers"
+	fcthandlers "ww2analytic/modules/facilities/http_handlers"
 	shiphandlers "ww2analytic/modules/ship/http_handlers"
 	vechandlers "ww2analytic/modules/vehicle/http_handlers"
 
@@ -31,6 +32,10 @@ func InitV1() *echo.Echo {
 	// Vehicles
 	e.GET("api/v1/vehicles/byrole/:ord", vechandlers.GetTotalVehicleRole)
 	e.GET("api/v1/vehicles/bycountry/:ord", vechandlers.GetTotalVehicleCountry)
+
+	// Facilities
+	e.GET("api/v1/facilities/bytype/:ord", fcthandlers.GetTotalFacilitiesByType)
+	e.GET("api/v1/facilities/bycountry/:ord", fcthandlers.GetTotalFacilitiesByCountry)
 
 	// =============== Private routes ===============
 
