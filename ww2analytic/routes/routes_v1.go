@@ -5,6 +5,7 @@ import (
 	airplanehandlers "ww2analytic/modules/airplane/http_handlers"
 	fcthandlers "ww2analytic/modules/facilities/http_handlers"
 	shiphandlers "ww2analytic/modules/ship/http_handlers"
+	strhandlers "ww2analytic/modules/stories/http_handlers"
 	vechandlers "ww2analytic/modules/vehicle/http_handlers"
 
 	"github.com/labstack/echo"
@@ -36,6 +37,11 @@ func InitV1() *echo.Echo {
 	// Facilities
 	e.GET("api/v1/facilities/bytype/:ord", fcthandlers.GetTotalFacilitiesByType)
 	e.GET("api/v1/facilities/bycountry/:ord", fcthandlers.GetTotalFacilitiesByCountry)
+
+	// Stories
+	e.GET("api/v1/stories/bytype/:ord", strhandlers.GetTotalStoriesByType)
+	e.GET("api/v1/stories/bylocation/:ord", strhandlers.GetTotalStoriesByLocation)
+	e.GET("api/v1/stories/byresult/:ord", strhandlers.GetTotalStoriesByResult)
 
 	// =============== Private routes ===============
 
